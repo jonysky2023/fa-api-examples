@@ -1,4 +1,4 @@
-# FlexxAnalyzer API Examples: TypeScript
+# FlexxAnalyzer API Examples
 
 This repository contains examples of how to use the FlexxAnalyzer API. You can use this repository as a starting point for your own FlexxAnalyzer projects.
 
