@@ -1,0 +1,28 @@
+{
+  "name": "fa-examples-ts-user-apps",
+  "version": "1.0.0",
+  "description": "Query the FlexxAnalyzer REST API to return apps used by users",
+  "keywords": [
+    "flexxanalyzer",
+    "example",
+    "sample",
+    "typescript"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "start": "node dist/index.js"
+  },
+  "author": "Kilian Arjona <karjona@flexxible.com> (https://flexxible.com)",
+  "license": "MIT",
+  "repository": "github:flexxibleit/fa-api-examples",
+  "devDependencies": {
+    "@tsconfig/node-lts-strictest": "^18.12.1",
+    "@types/node": "^18.11.18",
+    "rimraf": "^4.1.2",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "axios": "^1.3.1",
+    "dotenv": "^16.0.3"
+  }
+}
