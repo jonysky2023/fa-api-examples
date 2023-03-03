@@ -33,27 +33,26 @@ export async function getUserProcesses(
     // We use stdout.write to update the console with the current user
     // We use \r to return to the beginning of the line so that we can
     // overwrite the previous user
-    const message = `Processing ${user.userPrincipalName} (${counter} of ${users.length})...`;
-    const padding = " ".repeat(message.length);
+    const message = `Processing ${
+      user.userPrincipalName ?? user.username
+    } (${counter} of ${users.length})...`;
+    const padding = " ".repeat(process.stdout.columns - message.length);
     process.stdout.write(`${message}${padding}\r`);
 
-    // Do not process users without a userPrincipalName
-    if (user.userPrincipalName) {
-      // Call the API to retrieve the data for the current user
-      const response = await queryApi(
-        `/app-reports/${user.id}/used-in-time-interval?startDate=${startDate}&endDate=${endDate}`,
-        undefined,
-        sort
-      );
+    // Call the API to retrieve the data for the current user
+    const response = await queryApi(
+      `/app-reports/${user.id}/used-in-time-interval?startDate=${startDate}&endDate=${endDate}`,
+      undefined,
+      sort
+    );
 
-      // Extract the process names from the API response and add the data
-      // to the array
-      const processes = response.map((process: Process) => process.productName);
-      userProcesses.push({
-        userPrincipalName: user.userPrincipalName,
-        processes,
-      });
-    }
+    // Extract the process names from the API response and add the data
+    // to the array
+    const processes = response.map((process: Process) => process.productName);
+    userProcesses.push({
+      userPrincipalName: user.userPrincipalName ?? user.username,
+      processes,
+    });
 
     // During processing we are using stdout.write to update the console
     // with the current user. When we reach the end of the loop, we need
