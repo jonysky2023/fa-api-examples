@@ -33,9 +33,9 @@ export async function getUserProcesses(
     // We use stdout.write to update the console with the current user
     // We use \r to return to the beginning of the line so that we can
     // overwrite the previous user
-    process.stdout.write(
-      `Processing ${user.userPrincipalName} (${counter} of ${users.length})...\r`
-    );
+    const message = `Processing ${user.userPrincipalName} (${counter} of ${users.length})...`;
+    const padding = " ".repeat(message.length);
+    process.stdout.write(`${message}${padding}\r`);
 
     // Do not process users without a userPrincipalName
     if (user.userPrincipalName) {
