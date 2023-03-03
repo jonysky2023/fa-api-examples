@@ -1,6 +1,6 @@
 {
   "name": "fa-examples-ts-user-apps",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Query the FlexxAnalyzer REST API to return apps used by users",
   "keywords": [
     "flexxanalyzer",
