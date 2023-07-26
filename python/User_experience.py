@@ -1,11 +1,13 @@
 import requests
 import pprint
 
-# Define las variables para customer-id y Authorization
+# Define las variables para customer-id, Authorization, perPage y page
 customer_id = '<customer id>'
 bearer_token = '<Bearer Token>'
+per_page = 10
+page = 1
 
-url = "https://west-eu.api.flexxanalyzer.com/api/v4/user-experiences?perPage=10&page=1"
+url = f"https://west-eu.api.flexxanalyzer.com/api/v4/user-experiences?perPage={per_page}&page={page}"
 
 payload = {}
 headers = {
