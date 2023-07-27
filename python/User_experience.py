@@ -7,6 +7,7 @@ bearer_token = '<Bearer Token>'
 per_page = 10
 page = 1
 
+# Define la URL del endpoint
 url = f"https://west-eu.api.flexxanalyzer.com/api/v4/user-experiences?perPage={per_page}&page={page}"
 
 payload = {}
